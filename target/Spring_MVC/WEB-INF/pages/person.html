@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${person.getId()}"/>
+<p th:text="${person.getName()}"/>
+<p th:text="${person.getAge()}"/>
+<p th:text="${person.getEmail()}"/>
+<a th:href="@{/person/delete/{id}(id = ${person.getId()})}">delete</a>
+<a th:href="@{/person/update/{id}(id = ${person.getId()})}">update</a>
+</body>
+</html>
