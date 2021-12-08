@@ -1,12 +1,15 @@
 package web.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     // Метод, указывающий на класс конфигурации
     @Override
+    @Autowired
     protected Class<?>[] getRootConfigClasses() {
+        //return new Class<?>[]{DBConfig.class};
         return null;
     }
 
