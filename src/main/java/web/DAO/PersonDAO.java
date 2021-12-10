@@ -9,25 +9,21 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@Component
-public class PersonDAO {
+public class PersonDAO implements PersonDAOI{
     @PersistenceContext()
     private EntityManager entityManager;
 
     public void savePerson(Person person) {
         entityManager.persist(person);
-        entityManager.getTransaction().commit();
         entityManager.close();
     }
 
     public void updatePerson(Person person) {
         entityManager.merge(person);
-        entityManager.getTransaction().commit();
     }
 
     public void deletePersonById(long id) {
         entityManager.remove(entityManager.find(Person.class, id));
-        entityManager.getTransaction().commit();
     }
     public Person getPersonById(long id) {
         return entityManager.find(Person.class, id);

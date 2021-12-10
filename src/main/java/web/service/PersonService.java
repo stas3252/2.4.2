@@ -10,8 +10,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Component
-public class PersonService {
+public class PersonService implements PersonServiceI{
     private PersonDAO personDAO;
     @Autowired
     public PersonService(PersonDAO personDAO) {
