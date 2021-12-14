@@ -9,8 +9,8 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     @Autowired
     protected Class<?>[] getRootConfigClasses() {
-        //return new Class<?>[]{DBConfig.class};
-        return null;
+        return new Class[]{DBConfig.class};
+        //return null;
     }
 
 

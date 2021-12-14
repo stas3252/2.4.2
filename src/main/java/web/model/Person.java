@@ -1,17 +1,14 @@
 package web.model;
 
-import org.hibernate.annotations.Table;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 @Entity
-@Table(appliesTo = "", comment = "Persons")
+@Table(name = "persons")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="name")
+    @Column(name="firstname")
     private String name;
 
     @Column(name="age")
@@ -52,4 +49,5 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
+    public String toString(){return name + " " + age + " " + email + " id = " + id;}
 }
