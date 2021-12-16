@@ -10,7 +10,9 @@ import web.service.PersonService;
 
 @Controller
 public class PersonController {
+
     private final PersonService personService;
+
     @Autowired
     public PersonController(PersonService personService) {
         this.personService = personService;
@@ -47,7 +49,6 @@ public class PersonController {
 
     @GetMapping(value="/person/update/{id}")
     public String updatePersonById(@PathVariable("id") long id, Model model) {
-        System.out.println();
         model.addAttribute("person", personService.getPersonById(id));
         return "update";
     }

@@ -23,6 +23,7 @@ import java.util.Properties;
 public class DBConfig {
 
     private final Environment environment;
+
     @Autowired
     public DBConfig(Environment environment) {
         this.environment = environment;
@@ -33,6 +34,7 @@ public class DBConfig {
         vendorAdapter.setShowSql(true);
         return vendorAdapter;
     }
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
