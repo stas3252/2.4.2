@@ -16,7 +16,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="getEntityManagerFactory" value="544042ef-2960-4c76-9ec4-67deadcec8af" />
+          <factory-entry name="getEntityManagerFactory" />
           <factory-entry name="myDB" />
           <factory-entry name="spring-mvc" />
         </datasource-mapping>
@@ -45,6 +45,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf-spring5:3.0.9.RELEASE" level="project" />
