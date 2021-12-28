@@ -20,23 +20,9 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
                                         Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/admin/");
+            httpServletResponse.sendRedirect("/admin/show-users");
         } else {
             httpServletResponse.sendRedirect("/user/local");
         }
-        //httpServletResponse.sendRedirect("/hello");
     }
-    /*public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
-                                        HttpServletResponse httpServletResponse,
-                                        Authentication authentication) throws IOException, ServletException {
-        Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-        if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/admin");
-        } else if (roles.contains("ROLE_VIP")) {
-            httpServletResponse.sendRedirect("/vip");
-        }
-        else {
-            httpServletResponse.sendRedirect("/user/lk");
-        }
-    }*/
 }

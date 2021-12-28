@@ -5,10 +5,10 @@
     <form th:if="${#request.userPrincipal != null}" th:action="@{/logout}">
         <button type="submit">log out</button>
     </form>
-    <form th:action="@{/admin/all}">
+    <form th:action="@{/admin/show-users}">
         <button type="submit">admin</button>
     </form>
-    <form th:action="@{/person/local}">
+    <form th:action="@{/user/local}">
         <button type="submit">user</button>
     </form>
 </div>

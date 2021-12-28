@@ -11,7 +11,7 @@
 </div>
 <h2>Update User</h2>
 <div>
-    <form th:action="@{/admin/update}" th:object="${user}" method="POST">
+    <form th:action="@{/admin/update-user}" th:object="${user}" method="POST">
         <input type="hidden" name="id" th:value="${user.getId()}">
 
         <fieldset>

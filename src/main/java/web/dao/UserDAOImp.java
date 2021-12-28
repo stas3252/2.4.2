@@ -40,10 +40,10 @@ public class UserDAOImp implements UserDAO{
     }
 
     @Override
-    public User getByName(String name) {
+    public User getUserByUsername(String username) {
         return entityManager
-                .createQuery("select User from User u where u.name = :name", User.class)
-                .setParameter("name",name)
+                .createQuery("select User from User u where u.username = :username", User.class)
+                .setParameter("username",username)
                 .getSingleResult();
     }
 }

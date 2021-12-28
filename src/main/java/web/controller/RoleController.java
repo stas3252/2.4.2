@@ -9,17 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+
 public class RoleController {
-    @GetMapping(value = "/")
-    public String getHomePage(ModelMap model) {
-        List<String> messages = new ArrayList<>();
-        messages.add("Hello!");
-        messages.add("I'm Spring MVC-SECURITY application");
-        messages.add("This is Root Page");
-        model.addAttribute("messages", messages);
+    @GetMapping("/")
+    public String getHomePage() {
         return "role/index";
     }
-
     @GetMapping(value = "/login")
     public String getLoginPage() {
         return "role/login";

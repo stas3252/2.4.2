@@ -16,8 +16,8 @@ public class User implements Serializable, UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name", unique = true)
-    private String name;
+    @Column(name = "username", unique = true)
+    private String username;
 
     @Column(name = "password")
     private String password;
@@ -30,8 +30,8 @@ public class User implements Serializable, UserDetails {
 
     public User(){}
 
-    public User(String name, String password, Set<Role> roles) {
-        this.name = name;
+    public User(String username, String password, Set<Role> roles) {
+        this.username = username;
         this.password = password;
         this.roles = roles;
     }
@@ -57,9 +57,9 @@ public class User implements Serializable, UserDetails {
     public void setPassword(String password) {this.password = password;}
 
     @Override
-    public String getUsername() {return name;}
+    public String getUsername() {return username;}
 
-    public void setUserName(String name) {this.name = name;}
+    public void setUserName(String username) {this.username = username;}
 
     @Override
     public boolean isAccountNonExpired() {

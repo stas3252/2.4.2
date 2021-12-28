@@ -1,6 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import web.model.Role;
@@ -11,7 +12,8 @@ import web.service.UserService;
 import java.util.HashSet;
 import java.util.Set;
 
-@RequestMapping("/admin")
+@Controller
+@RequestMapping(value = "/admin")
 public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
@@ -22,24 +24,19 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @PostMapping(value = "/")
-    public String welcome() {
-        return "redirect:/admin/all";
-    }
-
-    @GetMapping(value = "/all")
+    @GetMapping(value = "/show-users")
     public String getAllUsers(ModelMap model) {
         model.addAttribute("users", userService.list());
         return "user/index";
     }
 
-    @GetMapping("/new")
-    public String newPerson(@ModelAttribute("user") User user) {
+    @GetMapping("/create-user")
+    public String newUser(@ModelAttribute("user") User user) {
         return "user/new";
     }
 
-    @PostMapping(value = "/new")
-    public String postNewPerson(@ModelAttribute("user") User user,
+    @PostMapping(value = "/create-user")
+    public String postNewUser(@ModelAttribute("user") User user,
                               @RequestParam(required=false) String roleAdmin) {
         Set<Role> roles = new HashSet<>();
         roles.add(roleService.getRoleByName("ROLE_USER"));
@@ -49,10 +46,10 @@ public class AdminController {
         user.setRoles(roles);
         userService.save(user);
 
-        return "redirect:/admin/";
+        return "redirect:/admin/show-users";
     }
 
-    @GetMapping("/{id}/update")
+    @GetMapping("/update-user/{id}")
     public String update(ModelMap model, @PathVariable("id") long id) {
         User user = userService.getById(id);
         Set<Role> roles = user.getRoles();
@@ -65,7 +62,7 @@ public class AdminController {
         return "user/update";
     }
 
-    @PostMapping(value = "/update")
+    @PostMapping(value = "/update-user")
     public String postUpdateUser(@ModelAttribute("user") User user,
                                  @RequestParam(required=false) String roleAdmin) {
         Set<Role> roles = new HashSet<>();
@@ -75,12 +72,12 @@ public class AdminController {
         }
         user.setRoles(roles);
         userService.update(user);
-        return "redirect:/admin/";
+        return "redirect:/admin/show-users";
     }
 
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/delete-user/{id}")
     public String delete(@PathVariable("id") long id) {
         userService.deleteById(id);
-        return "redirect:/admin";
+        return "redirect:/admin/show-users";
     }
 }

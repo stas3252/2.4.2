@@ -11,7 +11,7 @@
     <th:block th:include="menu">Menu</th:block>
 </div>
 <div>
-    <form th:action="@{/admin/new}" th:object="${user}" method="POST">
+    <form th:action="@{/admin/create-user}" th:object="${user}" method="POST">
         <fieldset>
             <legend>User info</legend>
             <p>
@@ -40,7 +40,7 @@
     </form>
     <br/>
 
-    <form th:action="@{/admin/all}">
+    <form th:action="@{/admin/show-users}" method="get">
         <button type="submit">List users</button>
     </form>
 
