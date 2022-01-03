@@ -44,9 +44,12 @@ public class AdminController {
             roles.add(roleService.getRoleByName("ROLE_ADMIN"));
         }
         user.setRoles(roles);
+        System.out.println("____________________________________");
+        System.out.println(user);
+        System.out.println("____________________________________");
         userService.save(user);
-
-        return "redirect:/admin/show-users";
+        return null;
+//        return "redirect:/admin/show-users";
     }
 
     @GetMapping("/update-user/{id}")
